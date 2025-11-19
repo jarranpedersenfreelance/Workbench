@@ -32,7 +32,7 @@ Find the location/ block and edit it
 # Example snippet inside the http or server block of nginx.conf (replace error stubs)
 server {
     listen 80;
-    server_name LIGHTSAIL_PUBLIC_IP;
+    server_name LIGHTSAIL_PUBLIC_IP or DOMAIN;
 
     location / {
         # Pass all requests coming to port 80 to the Python server on 1500
@@ -51,6 +51,28 @@ Finally, test the new configuration and restart Nginx
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+### HTTPS
+The above steps will allow the server to be accessed at the static IP on port 80 (HTTP)
+To enable port 443 (HTTPS) a few more steps are needed
+1. Enable port 443 in the IPv4 firewall for the lightsail instance
+2. Must have a domain name associated with the instance
+3. Install Certbot
+```
+sudo yum install epel-release -y
+sudo yum install certbot python3-certbot-nginx -y
+```
+4. Edit the Nginx config again and change server_name to be the domain instead of the IP (if needed)
+```
+sudo nano /etc/nginx/nginx.conf
+sudo nginx -t
+sudo systemctl reload nginx
+```
+5. Run certbot to generate the https cert (choose option 2 redirect for secure installation)
+```
+sudo certbot --nginx -d domain.com
+```
+HTTPS should now be live! Certbot will autorenew the cert every 90 days
 
 ## Deployment
 Use the ./deploy.sh command to deploy the server both locally (for testing) and remotely
