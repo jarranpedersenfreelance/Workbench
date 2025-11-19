@@ -1,2 +1,52 @@
-<h1>Hello from the Python Web Server!</h1>
-<p>This page is being served from the 'site/' directory.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarran's Workbench</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jarran's Projects</h1>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Project Link</th>
+                        <th>Github Link</th>
+                        <th>Status</th>
+                        <th>Last Commit</th>
+                    </tr>
+                </thead>
+                <tbody id="project-table-body">
+                    <tr data-repo="jarranpedersenfreelance/Workbench">
+                        <td>Workbench</td>
+                        <td></td>
+                        <td class="github-link"></td>
+                        <td><span class="status status-success">Complete</span></td>
+                        <td class="last-commit-time">Loading...</td>
+                    </tr>
+                    <tr data-repo="jarranpedersenfreelance/Mayaglyphs">
+                        <td>Mayaglyphs</td>
+                        <td><a href="https://mayaglyphs.org/" target="_blank">mayaglyphs.org</a></td>
+                        <td class="github-link"></td>
+                        <td><span class="status status-warning">In Progress</span></td>
+                        <td class="last-commit-time">Loading...</td>
+                    </tr>
+                    <tr data-repo="jarranpedersenfreelance/Agent">
+                        <td>Agent AI</td>
+                        <td></td>
+                        <td class="github-link"></td>
+                        <td><span class="status status-warning">In Progress</span></td>
+                        <td class="last-commit-time">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
