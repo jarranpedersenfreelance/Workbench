@@ -1,8 +1,8 @@
-# Mayaglyphs Webserver
+# Workbench Webserver
 
 ## Introduction
 
-This is the webserver made for the mayaglyphs.org site 
+This is the webserver made for the jarransworkbench.com site 
 
 ## Infrastucture
 
